@@ -8,10 +8,10 @@ Gem::Specification.new do |spec|
     spec.license       = "MIT"
 
     spec.metadata["plugin_type"] = "theme"
-    s.homepage = 'https://github.com/forestguild/theme'
+    spec.homepage = 'https://github.com/forestguild/theme'
 
     spec.files = `git ls-files -z`.split("\x0").select do |f|
-        f.match(%r!^(assets|export|_(includes|layouts|sass)/|(LICENSE|README)((\.(txt|md|markdown)|$)))!i)
+        f.match(%r!^(assets|_(includes|layouts|sass)/|(LICENSE|README)((\.(txt|md|markdown)|$)))!i)
     end
 
     spec.add_runtime_dependency "jekyll", "~> 3.5"
