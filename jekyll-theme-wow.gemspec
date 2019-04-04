@@ -15,4 +15,6 @@ Gem::Specification.new do |spec|
     end
 
     spec.add_runtime_dependency "jekyll", "~> 3.5"
+    spec.add_runtime_dependency "jekyll-wowdaily", "~> 1.0.0", ">= 1.0.0"
+    spec.add_runtime_dependency "jekyll-forcewebp", "~> 1.0.0", ">= 1.0.0"
 end
