@@ -32,6 +32,7 @@ layout: amp
         <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
         <script custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js" async=""></script>
         <script async custom-element="amp-ad" src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"></script>
+        <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
         <style amp-boilerplate>{% include assets/amp/boilerplate.css %}</style>
         <style amp-custom>{% include assets/amp/custom.css %}</style>
         <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
@@ -72,7 +73,7 @@ layout: amp
                     <!-- End byline -->
                 </header>
                 {% if site.ads.amp.top %}<amp-ad width="300" height="250" type="yandex" data-block-id="{{ site.ads.amp.top }}" data-html-access-allowed="true"></amp-ad>{% endif %}
-                {{ content | markdownify | amp_images | amp_tables | autonofollow }}
+                {{ content | autonofollow }}
                 <p><a class="nav-link" href="https://www.patreon.com/bePatron?u=4218488"><amp-img src="/assets/img/patreon.jpg" width="434" height="102" layout="fixed" class="my0 mx-auto "/></a></p>
                 {% if site.ads.amp.bottom %}<amp-ad width="300" height="250" type="yandex" data-block-id="{{ site.ads.amp.bottom }}" data-html-access-allowed="true"></amp-ad>{% endif %}
             </article>
