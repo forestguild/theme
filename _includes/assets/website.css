@@ -342,6 +342,25 @@ div.home-today {
     background: url(/assets/img/design/bg.today.webp) repeat-y;
 }
 
+div.home-guides {
+    color: #ebdec2;
+    text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);
+    background-size: cover;
+    font-size: 1.1rem;
+}
+.no-webp div.home-guides {
+    background: url(/assets/img/design/bg.red.jpg) repeat-y;
+}
+.webp div.home-guides {
+    background: url(/assets/img/design/bg.red.webp) repeat-y;
+}
+
+@media only screen and (max-width: 1024px) {
+    div.home-guides {
+        background-image: none !important;
+    }
+}
+
 div.home-connect {
     color: #ebdec2;
     text-shadow: 0 0 1px transparent, 0 1px 2px rgba(0,0,0,.8);

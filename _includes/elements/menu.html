@@ -28,6 +28,28 @@
     {% endfor %}
 </div>
 
+{% when 'home' %}
+<div class="row container-fluid">
+    {% for item in site.data.nav.wiki | limit: blocks %}
+    <div class="col">
+        <h3 class="header">{{ item.title }}</h3>
+        {% if item.items[0] %}
+        <ul class="wiki-menu">
+            {% for entry in item.items %}
+            <li><b><a class="{% if entry.class %}{{ entry.class }}{% endif %}" href='{{ entry.url | canonical }}'>{{ entry.title }}</a></b>
+            {% if entry.items[0] %}
+            {% for subentry in entry.items %}
+            <a class="{% if subentry.class %}{{ subentry.class }}{% endif %}" href='{{ subentry.url | canonical }}'>{{ subentry.title }}</a>
+            {% endfor %}
+            {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
 {% when 'vertical' %}
 {% for item in site.data.nav.wiki | limit: blocks %}
 <h3 class="{% unless forloop.first %}pt-4{% endunless %} text-center {% if item.class %}{{ item.class }}{% endif %}">{{ item.title }}</h3>
