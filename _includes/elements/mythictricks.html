@@ -1,0 +1,20 @@
+{% assign results = site.data.mythictricks | where: "slug",include.dungeon %}
+{% assign dungeon = results[0] %}
+
+{% for trick in dungeon.tricks %}
+<div class="row bg-dark-opacity pl-0 pt-3" id="{{ trick.name | slugify }}">
+    <div class="col-lg-5 text-center ml-0 pl-0">
+        {% if trick.video %}
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe src="{{ trick.video }}" class="embed-responsive-item" allowfullscreen></iframe>
+        </div>
+        {% else %}
+        А видео у нас нет :(
+        {% endif %}
+    </div>
+    <div class="col-lg-7">
+        <h3><strong>{{ trick.name }}</strong></h3>
+        <p>{{ trick.description }}</p>
+    </div>
+</div>
+{% endfor %}
