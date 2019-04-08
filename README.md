@@ -2,6 +2,87 @@
 
 [Live example](https://forestguild.club) - theme was built for that website
 
+
+<!-- vim-markdown-toc GFM -->
+
+* [Included features](#included-features)
+    - [Export](#export)
+        + [RSS feed](#rss-feed)
+        + [Sitemap](#sitemap)
+        + [Yandex.Turbo](#yandexturbo)
+    - [Streams](#streams)
+        + ["Streaming now" badge](#streaming-now-badge)
+        + [Stream Kit](#stream-kit)
+* [Configuration](#configuration)
+    - [`_config.yml`](#_configyml)
+    - [data files](#data-files)
+        + [Data files directory structure](#data-files-directory-structure)
+        + [`_data/ui/assets/*.yml`](#_datauiassetsyml)
+        + [`_data/ui/navigation/top.yml`](#_datauinavigationtopyml)
+        + [`_data/ui/navigation/wiki.yml`](#_datauinavigationwikiyml)
+        + [`_data/ui/media.yml`](#_datauimediayml)
+
+<!-- vim-markdown-toc -->
+
+## Included features
+
+### Export
+
+#### RSS feed
+
+1. Create file `rss.xml` (or `export/rss.xml`, as you wish) in your website dir
+2. Set content of that file with following:
+
+```yml
+---
+layout: export/rss
+---
+```
+
+Done, you can use `http://yourwebsite.com/rss.xml` (or `http://yourwebsite.com/export/rss.xml`) RSS feed
+
+#### Sitemap
+
+1. Create file `sitem.xml` (or `export/sitemap.xml`, as you wish) in your website dir
+2. Set content of that file with following:
+
+```yml
+---
+layout: export/sitemap
+---
+```
+
+Done, you can use `http://yourwebsite.com/sitemap.xml` (or `http://yourwebsite.com/export/sitemap.xml`) sitemap
+
+#### [Yandex.Turbo](https://yandex.ru/dev/turbo/)
+
+1. Create file `turbo.xml` (or `export/turbo.xml`, as you wish) in your website dir
+2. Set content of that file with following:
+
+```yml
+---
+layout: export/turbo
+---
+```
+
+Done, you can use `http://yourwebsite.com/turbo.xml` (or `http://yourwebsite.com/export/turbo.xml`) Yandex.Turbo feed
+
+### Streams
+
+#### "Streaming now" badge
+
+1. Set your Twitch `Client-ID` to `_data/ui/media.yml` => `stream.id` var (check examples)
+2. Add streames to `_data/ui/media.yml` => `stream.users` var (check examples)
+2. Add class `streaming_now` to any HTML element and it will be updated if any streamer of your list will go live
+
+Example: `<i class="streaming_now"></i> STREAMS` will be `<i class="streaming_now">1*</i> STREAMS`
+
+#### Stream Kit
+
+If you have prepaired branding and twitch/youtube instructions, you can set url to that file/dir in var `stream.kit` (in `_data/ui/media.yml`)
+
+Check example configs in next sections, live example (russian) is [here](https://forestguild.club/wiki/media)
+
 ## Configuration
 
 ### `_config.yml`
