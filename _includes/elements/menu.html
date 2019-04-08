@@ -1,14 +1,15 @@
 {% if include.blocks %}
 {% assign blocks = include.blocks | plus: 0 %}
 {% else %}
-{% assign blocks = site.data.nav.wiki | size %}
+{% assign blocks = site.data.ui.navigation.wiki | size %}
 {% endif %}
+{% assign links = site.data.ui.navigation.wiki | limit: blocks %}
 
 {% case include.view %}
 
 {% when 'horizontal' %}
 <div class="row container-fluid" style="padding-top: 100px;">
-    {% for item in site.data.nav.wiki | limit: blocks %}
+    {% for item in links %}
     <div class="col">
         <h3 class="header">{{ item.title }}</h3>
         {% if item.items[0] %}
@@ -30,7 +31,7 @@
 
 {% when 'home' %}
 <div class="row container-fluid">
-    {% for item in site.data.nav.wiki | limit: blocks %}
+    {% for item in links %}
     <div class="col">
         <h3 class="header">{{ item.title }}</h3>
         {% if item.items[0] %}
@@ -51,7 +52,7 @@
 </div>
 
 {% when 'vertical' %}
-{% for item in site.data.nav.wiki | limit: blocks %}
+{% for item in links %}
 <h3 class="{% unless forloop.first %}pt-4{% endunless %} text-center {% if item.class %}{{ item.class }}{% endif %}">{{ item.title }}</h3>
 {% if item.items[0] %}
 <ul>
@@ -70,7 +71,7 @@
 <a href="/wiki" class="text-muted float-right">Больше в Базе Знаний</a>
 
 {% when 'amp' %}
-{% for item in site.data.nav.wiki | limit: blocks %}
+{% for item in links %}
 <h4>{{ item.title }}</h4>
 {% if item.items[0] %}
 <ul class="list-reset m1 mb2 p0 ampstart-label">

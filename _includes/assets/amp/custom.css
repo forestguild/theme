@@ -1318,7 +1318,7 @@ template {
 }
 
 body {
-    background: url("/assets/img/bg.jpg") repeat-y bottom center #120d0a;
+    background: #120d0a;
     color: #c6c6c6;
     font-family:Arial,Helvetica,sans-serif;
     min-width: 315px;
