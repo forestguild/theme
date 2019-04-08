@@ -1,4 +1,4 @@
-{% assign results = site.data.mythictricks | where: "slug",include.dungeon %}
+{% assign results = site.data.keystones.tricks | where: "slug",include.dungeon %}
 {% assign dungeon = results[0] %}
 
 {% for trick in dungeon.tricks %}

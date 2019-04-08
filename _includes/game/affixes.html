@@ -6,7 +6,7 @@
 
 <div class="row text-center">
     {% for id in affixes %}
-    {% assign affix = site.data.affixes.list | where: 'id', id %}
+    {% assign affix = site.data.keystones.affixes | where: 'id', id %}
     <div class="col">
         <a href="https://{{ site.ui.meta.lang }}.wowhead.com/affix={{ id }}" data-wh-rename-link="false">
             {% if affix[0].note %}
