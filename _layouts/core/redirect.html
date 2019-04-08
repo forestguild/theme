@@ -4,15 +4,16 @@ layout: core/default
 
 <head>
     <meta charset="utf-8">
-    <title>Перенаправление</title>
-    <meta name="yandex-verification" content="{{ site.verification.yandex }}" />
-    <meta name="google-site-verification" content="{{ site.verification.google }}" />
+    <title>Redirect</title>
+    <meta name="yandex-verification" content="{{ site.ui.verification.yandex }}" />
+    <meta name="google-site-verification" content="{{ site.ui.verification.google }}" />
     <link rel="canonical" href="{{ page.redirect | canonical }}">
     <meta http-equiv="refresh" content="0; url={{ page.redirect | canonical }}">
-    <link rel="icon" type="image/png" href="{{ site.url }}/assets/img/logo.png" />
-    <link rel="apple-touch-icon" type="image/png" href="{{ site.url }}/assets/img/logo.png" />
+    <link rel="icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.ui.images.logo.url }}" />
+    <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.ui.images.logo.url }}" />
 </head>
 <body>
-    <h1>Перенаправление...</h1>
-    Адрес страницы изменился. Не переживай, сейчас ты попадешь, куда нужно
+    <h1>Redirecting...</h1>
+    Page url has been changed. Don't worry, you'll see it in a moment.<br>
+    <a href="{{ page.redirect | canonical }}">Click here</a> if nothing happens
 </body>
