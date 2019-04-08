@@ -30,6 +30,8 @@
 
 #### RSS feed
 
+> [Example](https://forestguild.club/export/rss.xml)
+
 1. Create file `rss.xml` (or `export/rss.xml`, as you wish) in your website dir
 2. Set content of that file with following:
 
@@ -43,6 +45,8 @@ Done, you can use `http://yourwebsite.com/rss.xml` (or `http://yourwebsite.com/e
 
 #### Sitemap
 
+> [Example](https://forestguild.club/export/sitemap.xml)
+
 1. Create file `sitem.xml` (or `export/sitemap.xml`, as you wish) in your website dir
 2. Set content of that file with following:
 
@@ -55,6 +59,8 @@ layout: export/sitemap
 Done, you can use `http://yourwebsite.com/sitemap.xml` (or `http://yourwebsite.com/export/sitemap.xml`) sitemap
 
 #### [Yandex.Turbo](https://yandex.ru/dev/turbo/)
+
+> [Example](https://forestguild.club/export/turbo.xml)
 
 1. Create file `turbo.xml` (or `export/turbo.xml`, as you wish) in your website dir
 2. Set content of that file with following:
@@ -71,17 +77,22 @@ Done, you can use `http://yourwebsite.com/turbo.xml` (or `http://yourwebsite.com
 
 #### "Streaming now" badge
 
+> [Example](https://forestguild.club) - you will see that badge only if one of site's streamers goes live
+
 1. Set your Twitch `Client-ID` to `_data/ui/media.yml` => `stream.id` var (check examples)
 2. Add streames to `_data/ui/media.yml` => `stream.users` var (check examples)
 2. Add class `streaming_now` to any HTML element and it will be updated if any streamer of your list will go live
 
 Example: `<i class="streaming_now"></i> STREAMS` will be `<i class="streaming_now">1*</i> STREAMS`
 
+
 #### Stream Kit
+
+> [Example](https://forestguild.club/wiki/media) - under the streamers list
 
 If you have prepaired branding and twitch/youtube instructions, you can set url to that file/dir in var `stream.kit` (in `_data/ui/media.yml`)
 
-Check example configs in next sections, live example (russian) is [here](https://forestguild.club/wiki/media)
+Check example configs in next sections.
 
 ## Configuration
 
