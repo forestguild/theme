@@ -47,12 +47,12 @@ layout: core/compress
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top global">
-            <a class="navbar-brand d-lg-none" href="/">{{ site.ui.brand }}</a>
+            <a class="navbar-brand d-lg-none" href="{{ site.url }}{{ site.baseurl }}">{{ site.ui.brand }}</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <a class="navbar-brand" href="/"><img src="{{ site.baseurl }}{{ site.ui.images.logo.url }}" style="width:50px"/></a>
+                <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}"><img src="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" style="width:50px"/></a>
                 <ul class="navbar-nav mr-auto">
                     {% for item in site.data.ui.navigation.top.left %}
                     <li class="nav-item">
