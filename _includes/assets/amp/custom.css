@@ -2126,3 +2126,16 @@ h1+.ampstart-byline time {
 .amp-mt-iframe {
     margin-top: 250px;
 }
+
+.d-none {
+    display: none;
+}
+
+.metatitle {
+    color: #4f4f4f;
+    font-style: normal;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.125rem;
+    letter-spacing: .06rem;
+}

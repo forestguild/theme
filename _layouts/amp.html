@@ -11,13 +11,26 @@ layout: amp
         <link rel="canonical" href="{{ page.url | canonical }}">
         <link rel="shortcut icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
         <link rel="icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
+        {% if site.ui.images.logo.url %}
         <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
+        {% else %}
+        {% for logo in site.ui.images.logo %}
+        <link rel="apple-touch-icon" type="{{ logo.type }}" href="{{ site.url }}{{ site.baseurl }}{{ logo.url }}" />
+        {% endfor %}
+        {% endif %}
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
         <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.ui.meta.title }}{% endif %}" />
         <meta property="og:type" content="{% if page.layout == 'wiki' or page.path == 'mythic.html' %}article{% else %}website{% endif %}" />
         <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' | replace:'.html','' }}" />
+        {% if site.ui.images.logo.url %}
         <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
         <meta property="og:image:type" content="{{ site.ui.images.logo.type }}" />
+        {% else %}
+        {% for logo in site.ui.images.logo %}
+        <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ logo.url }}" />
+        <meta property="og:image:type" content="{{ logo.type }}" />
+        {% endfor %}
+        {% endif %}
         <meta property="og:locale" content="{{ site.ui.meta.locale }}" />
         <meta property="og:site_name" content="{{ site.ui.meta.title }}" />
         <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.ui.meta.description }}{% endif %}" />
@@ -38,11 +51,15 @@ layout: amp
         <noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
     </head>
     <body>
-
+        {% if site.ui.images.logo.url %}
+        {% assign logo = site.ui.images.logo %}
+        {% else %}
+        {% assign logo = site.ui.images.logo[0] %}
+        {% endif %}
         <!-- Start Navbar -->
         <header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 ">
             <a href="{{ site.url }}{{ site.baseurl }}/{{ page.url | replace:'index.html','' | replace:'.html','' | replace: 'amp/','' }}">Полная версия</a>
-            <amp-img src="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" width="61.3" height="61.3" layout="fixed" class="my0 mx-auto " alt="{{ site.ui.meta.title }}"></amp-img>
+            <amp-img src="{{ site.url }}{{ site.baseurl }}{{ logo.url }}" width="61.3" height="61.3" layout="fixed" class="my0 mx-auto " alt="{{ site.ui.meta.title }}"></amp-img>
             <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger pr2">☰</div>
         </header>
 
@@ -63,14 +80,9 @@ layout: amp
         <main id="content" role="main" class="">
             <article class="recipe-article">
                 <header>
-                    {% if page.author %}<span class="ampstart-subtitle block px3 pt2 mb2">{{ page.author }}</span>{% endif %}
-                    <h1 class="mb1 px3"><!--{{ page.menu | replace: "&nbsp;","" }}--></h1>
-
-                    <!-- Start byline -->
-                    <address class="ampstart-byline clearfix mb4 px3 h5">
-                        <time class="ampstart-byline-pubdate block bold my1" datetime="2016-12-13">{{ page.metatitle }}</time>
-                    </address>
-                    <!-- End byline -->
+                    {% capture author %}{% include elements/author.html %}{% endcapture %}
+                    <span class="ampstart-subtitle block px3 pt2 mb2">{{ author | amp_images: false }}</span>
+                    <h1 class="metatitle">{{ page.metatitle }}</h1>
                 </header>
                 {% if site.ui.ads.amphtml.top %}<amp-ad width="300" height="250" type="{{ site.ui.ads.type }}" data-block-id="{{ site.ui.ads.amphtml.top }}" data-html-access-allowed="true"></amp-ad>{% endif %}
                 {{ content | autonofollow }}

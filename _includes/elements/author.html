@@ -6,9 +6,14 @@
 
 {% if authorName %}
 {% assign author = site.authors | where: "name", authorName | first %}
+{% if site.ui.images.logo.url %}
+{% assign logo = site.ui.images.logo %}
+{% else %}
+{% assign logo = site.ui.images.logo[0] %}
+{% endif %}
 <span class="d-none d-lg-inline">Автор:</span>
 <a href="https://worldofwarcraft.com/ru-ru/character/{{ author.realm }}/{{ author.char }}" class="alert-link" target="_blank" rel="nofollow" title="{{ author.description }}">
-    <img src="{{ author.avatar | default: {{ site.ui.images.logo.url }}" width="32px" height="32px">
+    <img src="{{ site.url }}{{ site.baseurl }}{{ author.avatar | default: {{ logo.url }}" width="1rem" height="1rem">
     {{ author.name | default: author.char }}
 </a>
 {% endif %}
