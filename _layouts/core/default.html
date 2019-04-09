@@ -18,7 +18,7 @@ layout: core/compress
         <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.ui.meta.title }}{% endif %}" />
         <meta property="og:type" content="{% if page.layout == 'wiki' or page.path == 'mythic.html' %}article{% else %}website{% endif %}" />
         <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' | replace:'.html','' }}" />
-        <meta property="og:image" content="{{ site.url }}{{ site.ui.images.logo.url }}" />
+        <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
         <meta property="og:image:type" content="{{ site.ui.images.logo.type }}" />
         <meta property="og:locale" content="{{ site.ui.meta.locale }}" />
         <meta property="og:site_name" content="{{ site.ui.meta.title }}" />
@@ -40,7 +40,7 @@ layout: core/compress
         <link rel="canonical" href="{{ page.url | canonical }}">
         <link rel="shortcut icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
         <link rel="icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
-        <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.ui.images.logo.url }}" />
+        <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
         {% if site.ui.analytics.yandex %}
         <script type="text/javascript" > (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter{{ site.ui.analytics.yandex }} = new Ya.Metrika2({ id:{{ site.ui.analytics.yandex }}, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true}); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/tag.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks2"); </script> <noscript><div><img src="https://mc.yandex.ru/watch/{{ site.ui.analytics.yandex }}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
         {% endif %}
@@ -52,7 +52,7 @@ layout: core/compress
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
-                <a class="navbar-brand" href="/"><img src="{{ site.ui.images.logo.url }}" style="width:50px"/></a>
+                <a class="navbar-brand" href="/"><img src="{{ site.baseurl }}{{ site.ui.images.logo.url }}" style="width:50px"/></a>
                 <ul class="navbar-nav mr-auto">
                     {% for item in site.data.ui.navigation.top.left %}
                     <li class="nav-item">

@@ -2,13 +2,13 @@
 {% case item.type %}
 
 {% when 'css' %}
-<link rel="stylesheet" href="{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}/>
+<link rel="stylesheet" href="{% if item.external == false %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}/>
 
 {% when 'js' %}
-<script {% if item.async %}async{% endif %} {% if item.defer %}defer{% endif %} src="{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}></script>
+<script {% if item.async %}async{% endif %} {% if item.defer %}defer{% endif %} src="{% if item.external == false %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}></script>
 
 {% when 'js-module' %}
-<script type="module" {% if item.async %}async{% endif %} {% if item.defer %}defer{% endif %} src="{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}></script>
+<script type="module" {% if item.async %}async{% endif %} {% if item.defer %}defer{% endif %} src="{% if item.external == false %}{{ site.url }}{{ site.baseurl }}{% endif %}{{ item.url }}" {% if item.integrity %}integrity="{{ item.integrity }}" crossorigin="anonymous"{% endif %}></script>
 
 {% endcase %}
 {% endfor %}

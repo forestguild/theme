@@ -11,12 +11,12 @@ layout: amp
         <link rel="canonical" href="{{ page.url | canonical }}">
         <link rel="shortcut icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
         <link rel="icon" href="{{ site.ui.images.favicon.url }}" type="{{ site.ui.images.favicon.type }}">
-        <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.ui.images.logo.url }}" />
+        <link rel="apple-touch-icon" type="{{ site.ui.images.logo.type }}" href="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
         <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
         <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.ui.meta.title }}{% endif %}" />
         <meta property="og:type" content="{% if page.layout == 'wiki' or page.path == 'mythic.html' %}article{% else %}website{% endif %}" />
         <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' | replace:'.html','' }}" />
-        <meta property="og:image" content="{{ site.url }}{{ site.ui.images.logo.url }}" />
+        <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" />
         <meta property="og:image:type" content="{{ site.ui.images.logo.type }}" />
         <meta property="og:locale" content="{{ site.ui.meta.locale }}" />
         <meta property="og:site_name" content="{{ site.ui.meta.title }}" />
@@ -42,7 +42,7 @@ layout: amp
         <!-- Start Navbar -->
         <header class="ampstart-headerbar fixed flex justify-start items-center top-0 left-0 right-0 pl2 pr4 ">
             <a href="{{ site.url }}{{ site.baseurl }}/{{ page.url | replace:'index.html','' | replace:'.html','' | replace: 'amp/','' }}">Полная версия</a>
-            <amp-img src="{{ site.ui.images.logo.url }}" width="61.3" height="61.3" layout="fixed" class="my0 mx-auto " alt="{{ site.ui.meta.title }}"></amp-img>
+            <amp-img src="{{ site.url }}{{ site.baseurl }}{{ site.ui.images.logo.url }}" width="61.3" height="61.3" layout="fixed" class="my0 mx-auto " alt="{{ site.ui.meta.title }}"></amp-img>
             <div role="button" aria-label="open sidebar" on="tap:header-sidebar.toggle" tabindex="0" class="ampstart-navbar-trigger pr2">☰</div>
         </header>
 
