@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name        = 'jekyll-theme-forestguild'
-    s.version     = '1.0.6'
+    s.version     = '1.0.8'
     s.date        = '2019-04-08'
     s.summary     = "World of Warcraft theme for Jekyll"
     s.description = "World of Warcraft theme for Jekyll, developed for https://forestguild.club (use that website as example)"
